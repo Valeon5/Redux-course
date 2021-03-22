@@ -27,6 +27,9 @@ module.exports = {
 		https: false, // this last 3 lines are due to an open issue with chrome. Once it's resolved we can remove them.
 	},
 	plugins: [
+		new webpack.DefinePlugin({
+			'process.env.API_URL': JSON.stringify('http://localhost3001'),
+		}),
 		new HtmlWebpackPlugin({
 			// the one imported at the beggining of the file. It accepts an object to configure the plugin.
 			template: 'src/index.html', // telling the plugin where to find our HTML template.

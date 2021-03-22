@@ -6,6 +6,7 @@ import rootReducer from './reducers';
 // Since we called the rootReducer index.js, we don't have to type './reducers/index', it is implied.
 
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
+import thunk from 'redux-thunk';
 
 export default function configureStore(initialState) {
 	const composeEnhancers =
@@ -14,7 +15,7 @@ export default function configureStore(initialState) {
 	return createStore(
 		rootReducer,
 		initialState,
-		composeEnhancers(applyMiddleware(reduxImmutableStateInvariant()))
+		composeEnhancers(applyMiddleware(thunk, reduxImmutableStateInvariant()))
 	);
 }
 
